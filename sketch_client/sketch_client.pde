@@ -34,6 +34,25 @@ void draw() {
 } 
 
 
+String determineGesture(int gesture) {
+  if (gesture == 1) {
+    return "rock";
+  } else if (gesture == 2) {
+    return "paper";
+  } else if (gesture == 3) {
+    return "scissors";
+  } else {
+    return "";
+  }
+}
+
+void sendArduino() {
+  //if (outString=="win") {
+  //  myPort.write("win");
+  //} else {
+  //  myPort.write("lose");
+  //}
+}
 
 void serialEvent( Serial myPort) {
   println(firstContact);
@@ -65,7 +84,9 @@ void serialEvent( Serial myPort) {
       if (serverContact == true) {
 
         myPort.write(outString);
-        println("Server:" + outString);
+        
+        println("Server: " + outString);
+        println("Client: " + inString);
       }
     }
   }
